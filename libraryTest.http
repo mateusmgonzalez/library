@@ -1,0 +1,68 @@
+
+#-----
+#
+#
+#  {
+#  "type": "record",
+#  "name": "LibraryEventTransport",
+#  "fields": [
+#    {
+#      "name": "libraryId",
+#      "type": "int"
+#    },
+#    {
+#      "name": "libraryType",
+#      "type": "string"
+#    },
+#    {
+#      "name": "book",
+#      "type": {
+#        "type": "record",
+#        "name": "BookTransport",
+#        "fields": [
+#          {
+#            "name": "bookId",
+#            "type": "int"
+#          },
+#          {
+#            "name": "bookName",
+#            "type": "string"
+#          },
+#          {
+#            "name": "bookAuthor",
+#            "type": "string"
+#          }
+#        ]
+#      }
+#    }
+#  ]
+#}
+#
+#
+#-------
+
+
+####
+
+#PUT WITH ID - 1
+#--------------
+# curl -i
+#-d '{"libraryId":1,"libraryType": "NEW","book":{"bookId":456,"bookName":"Kafka Using Spring Boot 2.X","bookAuthor":"Dilip"}}'
+#-H "Content-Type: application/json"
+#-X PUT http://localhost:8080/v1/libraryevent
+
+
+POST http://localhost:8089/v1/libraryevent
+Content-Type: application/json
+
+{
+  "libraryId": 1,
+  "libraryType": "NEW",
+  "book": {
+    "bookId": 456,
+    "bookName": "Kafka Using Spring Boot 2.X",
+    "bookAuthor": "Dilip"
+  }
+}
+
+###
